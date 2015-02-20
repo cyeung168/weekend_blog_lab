@@ -6,6 +6,8 @@ For this weekend, we'd like you to start building the foundation for a blog. You
 
 * [Rails Routing from the Outside In](http://guides.rubyonrails.org/routing.html)
 * [Active Record Associations](http://guides.rubyonrails.org/association_basics.html)
+    * Read [ActiveRecord::Associations::ClassMethods](http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html)
+    * Especially, focus on understanding "Deleting from associations"
 * [Active Record Validations](http://guides.rubyonrails.org/active_record_validations.html)
 
 ## Getting started
