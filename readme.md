@@ -1,8 +1,14 @@
-## Blog Lab
+# Blog Lab
 
 For this weekend, we'd like you to start building the foundation for a blog. Your blog will have full CRUD on two resources, authors and posts. The association you should keep in mind is that one author can write many posts.
 
-### Getting started
+## Before you get started, read and review:
+
+* [Rails Routing from the Outside In](http://guides.rubyonrails.org/routing.html)
+* [Active Record Associations](http://guides.rubyonrails.org/association_basics.html)
+* [Active Record Validations](http://guides.rubyonrails.org/active_record_validations.html)
+
+## Getting started
 
 1. Generate the rails application
 2. Generate your models
@@ -34,7 +40,7 @@ For this weekend, we'd like you to start building the foundation for a blog. You
 9. All of your views should use Rails form and link helpers. You should not be writing `<form>` or `<a>` tags at all!
 
 
-### Bonus
+## Bonus
 
 1. Once your application is working, add bootswatch and style the app!
 2. Add some interactivity to your page!
