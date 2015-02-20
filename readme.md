@@ -5,6 +5,7 @@ For this weekend, we'd like you to start building the foundation for a blog. You
 ## Before you get started, read and review:
 
 * [Rails Routing from the Outside In](http://guides.rubyonrails.org/routing.html)
+    * Read [Nested Resources](http://guides.rubyonrails.org/routing.html#nested-resources), especially 2.7.2 Shallow Nesting
 * [Active Record Associations](http://guides.rubyonrails.org/association_basics.html)
     * Read [ActiveRecord::Associations::ClassMethods](http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html)
     * Especially, focus on understanding "Deleting from associations"
