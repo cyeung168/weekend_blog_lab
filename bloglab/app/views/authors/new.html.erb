@@ -1,2 +1,29 @@
-<h1>Authors#new</h1>
-<p>Find me in app/views/authors/new.html.erb</p>
+<h1>Add a new author</h1>
+<p>
+  <% if @author.errors.any? %>
+    <% @author.errors.full_messages.each do |error| %>
+      <%= error %>
+    </p>
+    <% end %>
+  <% end %>
+</p>
+
+
+<%= form_for @author do |f| %>
+  <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, autofocus: true %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+  
+  <p>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
