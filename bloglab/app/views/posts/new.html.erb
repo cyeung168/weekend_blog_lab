@@ -1,2 +1,29 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Add a new post to <%= @post.author %></h1>
+<p>
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |error| %>
+      <%= error %>
+    </p>
+    <% end %>
+  <% end %>
+</p>
+
+<%= form_for [@author, @post] do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true %>
+  </p>
+
+  <p>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+  </p>
+  
+  <p>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
+
