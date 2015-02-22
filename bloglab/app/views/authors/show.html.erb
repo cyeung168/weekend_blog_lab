@@ -1,8 +1,14 @@
 <h1><%= @author.first_name + " " + @author.last_name %></h1>
-  <%= link_to "Edit author", edit_author_path(@author) %>
-<p><%= @author.first_name %> is <%= @author.age %> and has written:</p>
+<%= link_to "Edit author", edit_author_path(@author) %>
+<p>
+  <%= @author.first_name %> is <%= @author.age %> and has written:
+</p>
 <% @author.posts.each do |post| %>
   <p>
     <%= link_to post.title, post_path(post) %>
   </p>
 <% end %>
+
+<p>
+  <%= link_to "Add a post", new_author_post_path(@author) %>
+</p>
