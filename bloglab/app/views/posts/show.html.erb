@@ -1,5 +1,7 @@
+<%= render "partials/header" %>
 <h1><%= @post.title %></h1>
 <h3>Written by <%= @author.first_name + " " + @author.last_name %></h3>
 <p><%= @post.body %></p>
 <p>Category: <%= @post.category %></p>
 <p><%= link_to "Edit post", edit_post_path(@post) %></p>
+<%= render "partials/footer" %>

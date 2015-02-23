@@ -1,3 +1,4 @@
+<%= render "partials/header" %>
 <h1><%= @author.first_name + " " + @author.last_name %></h1>
 <%= link_to "Edit author", edit_author_path(@author) %>
 <p>
@@ -12,3 +13,4 @@
 <p>
   <%= link_to "Add a post", new_author_post_path(@author) %>
 </p>
+<%= render "partials/footer" %>

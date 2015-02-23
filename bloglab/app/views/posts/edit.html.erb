@@ -1,3 +1,4 @@
+<%= render "partials/header" %>
 <h1>Edit <%= @post.title %></h1>
 <p>
   <% if @author.errors.any? %>
@@ -31,3 +32,4 @@
   <%= link_to "Delete Post Entry", post_path, method: "DELETE", data: {confirm: "Are you sure you want to delete this post?"} %>
 </p>
 
+<%= render "partials/footer" %>
