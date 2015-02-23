@@ -1,7 +1,24 @@
 <%= render "partials/header" %>
-<h1><%= @post.title %></h1>
-<h3>Written by <%= @author.first_name + " " + @author.last_name %></h3>
-<p><%= @post.body %></p>
-<p>Category: <%= @post.category %></p>
-<p><%= link_to "Edit post", edit_post_path(@post) %></p>
+<div class="page-header">
+  <h1>
+    <%= @post.title %>
+    <small>Written by <%= @author.first_name + " " + @author.last_name %></small>
+  </h1>
+</div>
+<div class="row">
+<div class="col-lg-6">
+  <p><%= @post.body %></p>
+  <p>Category: <span class="label label-info"><%= @post.category %></span></p>
+</div>
+
+<div class="col-lg-6">
+  <p><%= link_to "Edit post", edit_post_path(@post), class: "btn btn-warning" %></p>
+</div>
+</div>
+
+<div class="page-header"></div>
+<ul class="pager">
+  <li class="previous"><%= link_to '← Back', url_for(:back) %></li>
+</ul>
+
 <%= render "partials/footer" %>

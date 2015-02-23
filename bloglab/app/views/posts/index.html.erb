@@ -1,13 +1,27 @@
 <%= render "partials/header" %>
-<h1>Here are all the posts for <%= @author.first_name + " " + @author.last_name %></h1>
-<% @posts.each do |post| %>
-  <p>
-    <%= link_to post.title, post_path(post) %>
-  </p>
-<% end %>
+<div class="page-header">
+  <h1>Here are all the posts for <%= @author.first_name + " " + @author.last_name %></h1>
+</div>
+
+<p class="lead">
+  <%= @author.first_name %> is <em><%= @author.age %></em> and has written the following posts:
+
+  <ol>
+    <% @author.posts.each do |post| %>
+      <li>
+        <%= link_to post.title, post_path(post) %>
+      </li>
+    <% end %>
+  </ol>
+</p>
 
 <p>
-  <%= link_to "Add a post", new_author_post_path(@author) %>
+  <%= link_to "Add a post", new_author_post_path(@author), class: "btn btn-primary" %>
 </p>
+
+<div class="page-header"></div>
+<ul class="pager">
+  <li class="previous"><%= link_to '← Back', url_for(:back) %></li>
+</ul>
 
 <%= render "partials/footer" %>

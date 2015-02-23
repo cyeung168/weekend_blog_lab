@@ -1,31 +1,60 @@
 <%= render "partials/header" %>
-<h1>Add a new post to <%= @post.author.first_name %></h1>
-<p>
-  <% if @post.errors.any? %>
-    <% @post.errors.full_messages.each do |error| %>
-      <%= error %>
-    </p>
-    <% end %>
-  <% end %>
-</p>
+<div class="page-header">
+  <h1>Add a new post to <%= @author.first_name %></h1>
+</div>
 
-<%= form_for [@author, @post] do |f| %>
+<div class="col-lg-6">
+<%= form_for [@author, @post], class: "form-horizontal" do |f| %>
+  <div class="well bs-component">
+  <fieldset>
+  <legend>
+  Write it
+  </legend>
   <p>
     <%= f.label :title %>
-    <%= f.text_field :title, autofocus: true %>
+    <%= f.text_field :title, class: "form-control", autofocus: true %>
   </p>
 
   <p>
     <%= f.label :body %>
-    <%= f.text_field :body %>
+    <%= f.text_area :body, class: "form-control" %>
   </p>
   
   <p>
     <%= f.label :category %>
-    <%= f.text_field :category %>
+    <%= f.text_field :category, class: "form-control" %>
   </p>
 
-  <%= f.submit %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+  </fieldset>
+  </div>
 <% end %>
+
+  <ul class="pager">
+    <li class="previous"><%= link_to '← Back', url_for(:back) %></li>
+  </ul>
+  </div>
+
+
+<div class="col-lg-6">
+    <% if @author.errors.any? %>
+      <div class="panel panel-danger">
+        
+      <div class="panel-heading">
+          <h3 class="panel-title">Errors</h3>
+      </div>
+        <div class="panel-body">
+        <ul>
+          <% @author.errors.full_messages.each do |error| %>
+            <li>
+              <%= error %>
+            </li>
+          <% end %>
+        </ul>
+        </div>
+
+      </div>
+    <% end %>
+</div> 
 
 <%= render "partials/footer" %>
