@@ -1,0 +1,11 @@
+// First import slate variables
+@import "bootswatch/slate/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// And finally bootswatch style itself
+@import "bootswatch/slate/bootswatch";
