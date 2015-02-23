@@ -1,16 +1,30 @@
 <%= render "partials/header" %>
-<h1><%= @author.first_name + " " + @author.last_name %></h1>
-<%= link_to "Edit author", edit_author_path(@author) %>
-<p>
-  <%= @author.first_name %> is <%= @author.age %> and has written:
+<div class="page-header">
+  <h1>
+    <%= @author.first_name + " " + @author.last_name %> 
+    <%= link_to "Edit author", edit_author_path(@author), class: "btn btn-warning" %>
+  </h1>
+</div>
+
+<p class="lead">
+  <%= @author.first_name %> is <em><%= @author.age %></em> and has written the following posts:
+
+  <ol>
+    <% @author.posts.each do |post| %>
+      <li>
+        <%= link_to post.title, post_path(post) %>
+      </li>
+    <% end %>
+  </ol>
 </p>
-<% @author.posts.each do |post| %>
-  <p>
-    <%= link_to post.title, post_path(post) %>
-  </p>
-<% end %>
 
 <p>
-  <%= link_to "Add a post", new_author_post_path(@author) %>
+  <%= link_to "Add a post", new_author_post_path(@author), class: "btn btn-primary" %>
 </p>
+
+<div class="page-header"></div>
+<ul class="pager">
+  <li class="previous"><%= link_to '← Back', url_for(:back) %></li>
+</ul>
+
 <%= render "partials/footer" %>

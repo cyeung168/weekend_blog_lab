@@ -1,31 +1,61 @@
 <%= render "partials/header" %>
-<h1>Add a new author</h1>
-<p>
-  <% if @author.errors.any? %>
-    <% @author.errors.full_messages.each do |error| %>
-      <%= error %>
-    </p>
+
+<div class="page-header">
+  <h1>Add a new author</h1>
+</div>
+
+<div class="col-lg-6">
+  <div class="well bs-component">
+    <%= form_for @author, class: "form-horizontal" do |f| %>
+      <fieldset>
+        <legend>
+          <h3>Author</h3>
+        </legend>
+        <p>
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: "form-control", autofocus: true %>
+        </p>
+
+        <p>
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: "form-control" %>
+        </p>
+        
+        <p>
+          <%= f.label :age %>
+          <%= f.number_field :age, class: "form-control" %>
+        </p>
+
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+        </fieldset>
     <% end %>
-  <% end %>
-</p>
+  </div>
+
+  <ul class="pager">
+    <li class="previous"><%= link_to '← Back', url_for(:back) %></li>
+  </ul>
+</div>
+
+<div class="col-lg-6">
+    <% if @author.errors.any? %>
+      <div class="panel panel-danger">
+        
+      <div class="panel-heading">
+          <h3 class="panel-title">Errors</h3>
+      </div>
+        <div class="panel-body">
+        <ul>
+          <% @author.errors.full_messages.each do |error| %>
+            <li>
+              <%= error %>
+            </li>
+          <% end %>
+        </ul>
+        </div>
+
+      </div>
+    <% end %>
+</div> 
 
 
-<%= form_for @author do |f| %>
-  <p>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, autofocus: true %>
-  </p>
-
-  <p>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </p>
-  
-  <p>
-    <%= f.label :age %>
-    <%= f.number_field :age %>
-  </p>
-
-  <%= f.submit %>
-<% end %>
 <%= render "partials/footer" %>

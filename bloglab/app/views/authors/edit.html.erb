@@ -1,34 +1,64 @@
 <%= render "partials/header" %>
-<h1>Edit <%= @author.first_name + " " + @author.last_name %></h1>
-<p>
-  <% if @author.errors.any? %>
-    <% @author.errors.full_messages.each do |error| %>
-      <%= error %>
-    </p>
+<div class="page-header">
+  <h1>Edit <%= @author.first_name + " " + @author.last_name %></h1>
+</div>
+
+<div class="col-lg-6">
+  <div class="well bs-component">
+    <%= form_for @author, class: "form-horizontal" do |f| %>
+      <fieldset>
+        <legend>
+          <h3>Author</h3>
+        </legend>
+      <p>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class: "form-control", autofocus: true %>
+      </p>
+
+      <p>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, class: "form-control" %>
+      </p>
+      
+      <p>
+        <%= f.label :age %>
+        <%= f.number_field :age, class: "form-control" %>
+      </p>
+
+      <p>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </p>
+      </fieldset>
     <% end %>
-  <% end %>
-</p>
 
-<%= form_for @author do |f| %>
-  <p>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, autofocus: true %>
-  </p>
+    <p>
+      <%= link_to "Destroy Author", author_path, method: "DELETE", data: {confirm: "Are you sure you want to delete " + @author.first_name + " " + @author.last_name}, class: "btn btn-danger" %>
+    </p>
+  </div>
+  <ul class="pager">
+    <li class="previous"><%= link_to '← Back', url_for(:back) %></li>
+  </ul>
+  </div>
 
-  <p>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </p>
-  
-  <p>
-    <%= f.label :age %>
-    <%= f.number_field :age %>
-  </p>
+<div class="col-lg-6">
+    <% if @author.errors.any? %>
+      <div class="panel panel-danger">
+        
+      <div class="panel-heading">
+          <h3 class="panel-title">Errors</h3>
+      </div>
+        <div class="panel-body">
+        <ul>
+          <% @author.errors.full_messages.each do |error| %>
+            <li>
+              <%= error %>
+            </li>
+          <% end %>
+        </ul>
+        </div>
 
-  <%= f.submit %>
-<% end %>
+      </div>
+    <% end %>
+</div> 
 
-<p>
-  <%= link_to "Destroy Author", author_path, method: "DELETE", data: {confirm: "Are you sure you want to delete " + @author.first_name + " " + @author.last_name} %>
-</p>
 <%= render "partials/footer" %>

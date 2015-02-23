@@ -1,5 +1,5 @@
 <%= render "partials/header" %>
-<h1>Add a new post to <%= @post.author %></h1>
+<h1>Add a new post to <%= @post.author.first_name %></h1>
 <p>
   <% if @post.errors.any? %>
     <% @post.errors.full_messages.each do |error| %>

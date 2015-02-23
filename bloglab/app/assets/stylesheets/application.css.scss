@@ -1,5 +1,5 @@
-// First import slate variables
-@import "bootswatch/slate/variables";
+// First import lumen variables
+@import "bootswatch/lumen/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
@@ -8,4 +8,5 @@
 body { padding-top: 60px; }
 
 // And finally bootswatch style itself
-@import "bootswatch/slate/bootswatch";
+@import "bootswatch/lumen/bootswatch";
+

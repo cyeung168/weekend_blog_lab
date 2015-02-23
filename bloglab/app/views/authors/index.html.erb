@@ -1,12 +1,17 @@
 <%= render "partials/header" %>
-<h1>List of all authors</h1>
 
-<% @authors.each do |author| %>
-  <p>
-    <%= link_to author.first_name + " " + author.last_name, author_path(author) %>
-  </p>
-<% end %>
+<div class="page-header">
+<h1>All Blog Authors</h1>
+</div>
 
-<%= link_to "Add a new author", new_author_path %>
+<ol>
+  <% @authors.each do |author| %>
+    <li class="lead">
+      <%= link_to author.first_name + " " + author.last_name, author_path(author) %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to "Add a new author", new_author_path, class: "btn btn-primary" %>
 </div>
 <%= render "partials/footer" %>
